@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "hades-attack"
+version = "0.1.0"
+description = "HADES: White-box adversarial attack pipeline for Vision-Language Models"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+dependencies = [
+    "torch>=2.5.0",
+    "torchvision>=0.20.0",
+    "transformers>=4.45.0",
+    "accelerate>=1.0.0",
+    "diffusers>=0.30.0",
+    "safetensors>=0.4.0",
+    "sentencepiece>=0.2.0",
+    "protobuf>=4.25.0",
+    "pillow>=10.0.0",
+    "numpy>=1.26.0",
+    "scipy>=1.12.0",
+    "einops>=0.7.0",
+    "datasets>=3.0.0",
+    "pyyaml>=6.0",
+    "tqdm>=4.66.0",
+    "bitsandbytes>=0.43.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4.0",
+]
+
+[project.scripts]
+hades-attack = "main:main"
+
+[tool.setuptools.packages.find]
+include = ["src*", "evaluate*", "config*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
